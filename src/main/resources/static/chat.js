@@ -11,7 +11,7 @@ const user2 = Number(localStorage.getItem("chatPartnerId"));
 // Load chat user's name
 function loadChatUser() {
 
-    fetch(`http://localhost:8080/api/users/${user2}`)
+    fetch(`/api/users/${user2}`)
         .then(response => response.json())
         .then(user => {
 
@@ -27,7 +27,7 @@ function loadChatUser() {
 // Load messages
 function loadMessages() {
 
-    fetch(`http://localhost:8080/api/messages/conversation?user1=${user1}&user2=${user2}`)
+    fetch(`/api/messages/conversation?user1=${user1}&user2=${user2}`)
         .then(response => response.json())
         .then(messages => {
 
@@ -113,7 +113,7 @@ function sendMessage() {
         content: content
     };
 
-    fetch("http://localhost:8080/api/messages", {
+    fetch("/api/messages", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -153,7 +153,7 @@ function sendMessage() {
 // Delete message
 function deleteMessage(messageId) {
 
-    fetch(`http://localhost:8080/api/messages/${messageId}?userId=${user1}`, {
+    fetch(`/api/messages/${messageId}?userId=${user1}`, {
         method: "DELETE"
     })
         .then(() => {
@@ -180,7 +180,7 @@ function editMessage(messageId, oldContent) {
         return;
     }
 
-    fetch(`http://localhost:8080/api/messages/${messageId}?userId=${user1}`, {
+    fetch(`/api/messages/${messageId}?userId=${user1}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

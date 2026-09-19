@@ -7,7 +7,7 @@ if (!loggedInUser) {
 
 function loadRequests() {
 
-    fetch("http://localhost:8080/api/requests")
+    fetch("/api/requests")
         .then(response => response.json())
         .then(requests => {
 
@@ -69,7 +69,7 @@ function loadRequests() {
 function updateRequest(requestId, status) {
 
     fetch(
-        `http://localhost:8080/api/requests/${requestId}/status?status=${status}`,
+        `/api/requests/${requestId}/status?status=${status}`,
         {
             method: "PUT"
         }

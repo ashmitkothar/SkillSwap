@@ -58,7 +58,7 @@ function submitRating() {
 
     };
 
-    fetch("http://localhost:8080/api/ratings", {
+    fetch("/api/ratings", {
 
         method: "POST",
 

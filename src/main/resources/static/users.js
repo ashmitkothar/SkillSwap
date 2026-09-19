@@ -11,7 +11,7 @@ if (!loggedInUser) {
 
 function loadUsers() {
 
-    fetch("http://localhost:8080/api/users")
+    fetch("/api/users")
 
         .then(response => response.json())
 
@@ -107,7 +107,7 @@ function loadUsers() {
 function loadRatings(userId) {
 
     return fetch(
-        `http://localhost:8080/api/ratings/user/${userId}`
+        `/api/ratings/user/${userId}`
     )
 
         .then(response => response.json())
@@ -174,7 +174,7 @@ function sendSwapRequest(receiverId) {
     };
 
 
-    fetch("http://localhost:8080/api/requests", {
+    fetch("/api/requests", {
 
         method: "POST",
 
