@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillSwap - Rating</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0B1220;
+            color: #F8FAFC;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: #111827;
+            border-bottom: 1px solid #334155;
+            padding: 14px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #60A5FA;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-buttons button {
+            padding: 8px 13px;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            background: #1E293B;
+            color: #E2E8F0;
+            cursor: pointer;
+        }
+
+        .nav-buttons button:hover {
+            background: #2563EB;
+            border-color: #2563EB;
+            color: white;
+        }
+
+        .logout {
+            background: transparent !important;
+            color: #FCA5A5 !important;
+        }
+
+        .logout:hover {
+            background: #7F1D1D !important;
+            border-color: #991B1B !important;
+            color: white !important;
+        }
+
+        .rating-box {
+            width: 90%;
+            max-width: 450px;
+            margin: 55px auto;
+            padding: 30px;
+            background: #111827;
+            border: 1px solid #334155;
+            border-radius: 16px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #F8FAFC;
+            margin-bottom: 25px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #0B1220;
+            color: white;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #3B82F6;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            font-family: Arial, sans-serif;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #64748B;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .star {
+            font-size: 35px;
+            color: #475569;
+            cursor: pointer;
+            transition: 0.15s ease;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #F59E0B;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #2563EB;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-buttons {
+                width: 100%;
+            }
+
+            .nav-buttons button {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        SkillSwap
+    </div>
+
+    <div class="nav-buttons">
+
+        <button onclick="window.location.href='/users.html'">
+            Find Partners
+        </button>
+
+        <button onclick="window.location.href='/requests.html'">
+            Requests
+        </button>
+
+        <button onclick="window.location.href='/rating.html'">
+            Rating
+        </button>
+
+        <button class="logout" onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+</nav>
+
+
+<div class="rating-box">
+
+    <h1>Rate Your Skill Partner</h1>
+
+    <input
+            type="number"
+            id="reviewedUserId"
+            placeholder="Partner User ID"
+    >
+
+    <div class="stars">
+
+        <span class="star" data-rating="1">★</span>
+        <span class="star" data-rating="2">★</span>
+        <span class="star" data-rating="3">★</span>
+        <span class="star" data-rating="4">★</span>
+        <span class="star" data-rating="5">★</span>
+
+    </div>
+
+    <textarea
+            id="feedback"
+            placeholder="Write your feedback..."
+    ></textarea>
+
+    <button class="submit-btn" onclick="submitRating()">
+        Submit Rating
+    </button>
+
+</div>
+
+
+<script src="/rating.js"></script>
+
+<script>
+
+    function logout() {
+
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("chatPartnerId");
+
+        window.location.href = "/login.html";
+    }
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillSwap - Find Partners</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0B1220;
+            color: #F8FAFC;
+        }
+
+        .navbar {
+            background: #111827;
+            border-bottom: 1px solid #334155;
+            padding: 14px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #60A5FA;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-buttons button {
+            padding: 8px 13px;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            background: #1E293B;
+            color: #E2E8F0;
+            cursor: pointer;
+        }
+
+        .nav-buttons button:hover {
+            background: #2563EB;
+            border-color: #2563EB;
+            color: white;
+        }
+
+        .logout {
+            background: transparent !important;
+            color: #FCA5A5 !important;
+        }
+
+        .logout:hover {
+            background: #7F1D1D !important;
+            border-color: #991B1B !important;
+            color: white !important;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 35px auto;
+        }
+
+        .page-header {
+            margin-bottom: 25px;
+        }
+
+        .page-header h1 {
+            margin: 0 0 8px;
+            color: #F8FAFC;
+        }
+
+        .page-header p {
+            margin: 0;
+            color: #94A3B8;
+        }
+
+        .user-card {
+            background: #111827;
+            border: 1px solid #334155;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: 0.2s ease;
+        }
+
+        .user-card:hover {
+            border-color: #3B82F6;
+            transform: translateY(-2px);
+        }
+
+        .user-card h2 {
+            margin: 0 0 8px;
+            color: #F8FAFC;
+        }
+
+        .user-card p {
+            color: #94A3B8;
+            margin: 7px 0;
+        }
+
+        .user-card strong {
+            color: #E2E8F0;
+        }
+
+        .card-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .card-buttons button,
+        .user-card button {
+            padding: 9px 16px;
+            border: none;
+            border-radius: 8px;
+            background: #2563EB;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .card-buttons button:hover,
+        .user-card button:hover {
+            background: #1D4ED8;
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-buttons {
+                width: 100%;
+            }
+
+            .nav-buttons button {
+                flex: 1;
+            }
+
+            .container {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        SkillSwap
+    </div>
+
+    <div class="nav-buttons">
+
+        <button onclick="window.location.href='/users.html'">
+            Find Partners
+        </button>
+
+        <button onclick="window.location.href='/requests.html'">
+            Requests
+        </button>
+
+        <button onclick="window.location.href='/rating.html'">
+            Rating
+        </button>
+
+        <button class="logout" onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <div class="page-header">
+
+        <h1>Find Skill Partners</h1>
+
+        <p>
+            Connect with students, exchange skills and learn together.
+        </p>
+
+    </div>
+
+    <div id="usersList"></div>
+
+</div>
+
+
+<script src="/users.js"></script>
+
+<script>
+
+    function logout() {
+
+        localStorage.removeItem("userId");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("chatPartnerId");
+
+        window.location.href = "/login.html";
+    }
+
+</script>
+
+</body>
+
+</html>

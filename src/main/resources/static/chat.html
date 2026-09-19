@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillSwap Chat</title>
+
+    <link rel="stylesheet" href="/chat.css">
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <!-- Chat Header -->
+    <div class="chat-header">
+
+        <div class="profile-circle">
+            D
+        </div>
+
+        <div class="profile-info">
+            <h2 id="chatUserName">Loading...</h2>
+            <span>● Online</span>
+        </div>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+    </div>
+
+    <!-- Messages -->
+    <div id="chatBox"></div>
+
+    <!-- Message Input -->
+    <div class="message-area">
+
+        <input
+                type="text"
+                id="messageInput"
+                placeholder="Type a message..."
+                autocomplete="off"
+        >
+
+        <button type="button" onclick="sendMessage()">
+            Send
+        </button>
+
+    </div>
+
+</div>
+
+<script src="/chat.js"></script>
+
+</body>
+
+</html>
